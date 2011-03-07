@@ -8,7 +8,7 @@ Given a name like "mysite" and a path to the files for the site, it will make th
 Usage
 =====
 
-	sudo add-vhost mysite ~/path/to/mysite/webroot
+	sudo vhostman add mysite ~/path/to/mysite/webroot
 
 Installation
 ============
@@ -27,4 +27,4 @@ Ensure it's executable:
 	
 Link this into your /usr/local/bin like so:
 
-	ln -s /path/to/add-vhost.rb /usr/local/bin/add-vhost
+	ln -s /path/to/vhostman.rb /usr/local/bin/vhostman

@@ -4,18 +4,21 @@ HOSTS = "/etc/hosts"
 VHOSTSDIR = "/etc/apache2/extra/vhosts/" # needs trailing slash
 
 def usage
-  puts "\tUSAGE: add-vhost.rb [name] [webroot path]"
+  puts "\tUSAGE: sudo vhostman add [name] [webroot path]"
 end
 
 def check_args
-  if ARGV.count < 2
+  if ARGV.count < 3
+    usage
+    exit
+  elsif ARGV[0] != 'add'
     usage
     exit
   else
-    @name = ARGV[0]
+    @name = ARGV[1]
     @domain = @name + '.local'
     @vhost_path = VHOSTSDIR + @domain + '.conf'
-    @path = File.expand_path ARGV[1].chomp('/')
+    @path = File.expand_path ARGV[2].chomp('/')
   end
 end
 
@@ -88,8 +91,8 @@ end
 
 # ----
 
-check_permission
 check_args
+check_permission
 check_path
 check_name
 add_to_hosts

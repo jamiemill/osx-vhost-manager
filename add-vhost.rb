@@ -1,17 +1,10 @@
 #!/usr/bin/env ruby
 
-# Ensure it's executable
-#   chmod 0777 add-vhost.rb
-# Link this into your /usr/local/bin like so:
-#   ln -s /path/to/this/add-vhost.rb /usr/local/bin/add-vhost
-# Then run as sudo like:
-#   sudo add-vhost mysite.local ~/path/to/webroot
-
 HOSTS = "/etc/hosts"
 VHOSTSDIR = "/etc/apache2/extra/vhosts/" # needs trailing slash
 
 def usage
-  puts "\tUSAGE: add-vhost.rb [name.local] [webroot path]"
+  puts "\tUSAGE: add-vhost.rb [name] [webroot path]"
 end
 
 def check_args

@@ -23,7 +23,7 @@ Add this line to your /etc/apache2/httpd.conf file:
 	
 Ensure it's executable:
 
-	chmod 0777 /path/to/add-vhost.rb
+	chmod 0777 /path/to/vhostman.rb
 	
 Link this into your /usr/local/bin like so:
 

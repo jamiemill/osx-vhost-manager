@@ -16,7 +16,7 @@ def check_args
     exit
   else
     @name = ARGV[1]
-    @domain = @name + '.local'
+    @domain = @name
     @vhost_path = VHOSTSDIR + @domain + '.conf'
     @path = File.expand_path ARGV[2].chomp('/')
   end
@@ -61,8 +61,7 @@ def make_vhost
     f.puts "<Directory \"#{@path}\">"
     f.puts "  Options Indexes FollowSymLinks MultiViews"
     f.puts "  AllowOverride All"
-    f.puts "  Order allow,deny"
-    f.puts "  Allow from all"
+    f.puts "  Require All Granted"
     f.puts "</Directory>"
     f.puts "<VirtualHost *:80>"
     f.puts "  DocumentRoot \"#{@path}\""
